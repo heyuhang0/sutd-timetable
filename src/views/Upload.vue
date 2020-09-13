@@ -22,7 +22,7 @@
                   </v-btn>
                 </v-flex>
                 <v-flex xs12 sm6>
-                  <v-btn block :href="GBL" :disabled="!clikd" @click.prevent>
+                  <v-btn block :href="GBL" target="_blank" :disabled="!clikd">
                     2. Right Click & Save
                     <v-icon right>file_download</v-icon>
                   </v-btn>
@@ -31,6 +31,7 @@
             </v-container>
           </v-card-text>
           <v-card-actions>
+            <v-btn :href="HELP" target="_blank">Help</v-btn>
             <v-spacer></v-spacer>
             <v-btn @click.native="step = 2">I have it</v-btn>
           </v-card-actions>
@@ -106,6 +107,7 @@ import parse from '@/plugins/timetable'
 
 const SAMS = 'https://sams.sutd.edu.sg/'
 const GBL = 'psc/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_LIST.GBL'
+const HELP = 'https://github.com/huixiang01/guide_to_sutd_timetable/blob/master/README.md#uploading-your-timetable'
 
 export default {
   data () {
@@ -114,6 +116,7 @@ export default {
       snack: { show: false, text: '' },
       GBL: SAMS + GBL,
       SAMS,
+      HELP,
       sending: false,
       mobile: false,
       clikd: false,
