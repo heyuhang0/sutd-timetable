@@ -138,7 +138,8 @@ export default {
       Promise.all([
         ref.child('modules').update(mods),
         ref.child('groups').update({ [label]: t.sections }),
-        ref.child('sections').child(t.term).update(t.schedules)
+        ref.child('sections').child(t.term).update(t.schedules),
+        ref.child('term').update(t.term.split('-'))
       ]).then(() => {
         this.$set(this.$root, 'selected', t.sections)
         this.sending = false
